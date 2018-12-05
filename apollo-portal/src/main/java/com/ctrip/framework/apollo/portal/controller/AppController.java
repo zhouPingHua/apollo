@@ -72,8 +72,12 @@ public class AppController {
 
   @RequestMapping(value = "/by-owner", method = RequestMethod.GET)
   public List<App> findAppsByOwner(@RequestParam("owner") String owner, Pageable page) {
-    Set<String> appIds = Sets.newHashSet();
 
+    if(null != owner && "apollo".equals(owner) ){
+      return appService.findAll();
+    }
+
+    Set<String> appIds = Sets.newHashSet();
     List<Role> userRoles = rolePermissionService.findUserRoles(owner);
 
     for (Role role : userRoles) {
