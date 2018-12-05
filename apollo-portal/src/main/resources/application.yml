@@ -1,11 +1,16 @@
+
+#apollo_profile: github
+apollo:
+  portal:
+    envs: DEV,PRO
 spring:
   application:
     name: apollo-portal
   profiles:
-    active: ${apollo_profile}
+    active: github,auth
 
 server:
-  port: 8080
+  port: 8092
   compression:
     enabled: true
   
