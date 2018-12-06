@@ -1,5 +1,6 @@
 eureka:
   instance:
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port:8080}
     hostname: ${hostname:localhost}
     preferIpAddress: true
     status-page-url-path: /info
